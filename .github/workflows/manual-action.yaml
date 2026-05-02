@@ -7,5 +7,18 @@ jobs:
   manual_job:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Print Hello
         run: echo "This workflow was triggered manually!"
+      - name: List src directory
+        run: |
+          echo "Listing files in src directory:"
+          ls -l src || echo "src directory not found"
+      - name: Show addition.py content
+        run: |
+          if [ -f src/addition.py ]; then
+            echo "--- src/addition.py ---"
+            cat src/addition.py
+          else
+            echo "src/addition.py not found"
+          fi

@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '.github/workflows/manual-action.yaml' #making sure that changes to manual-action.yaml do not trigger this workflow
 
 jobs:
   build:
